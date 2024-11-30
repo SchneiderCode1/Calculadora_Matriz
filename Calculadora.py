@@ -12,36 +12,31 @@ operacao = Operacoes(linhas)
 
 
 while True:
-    escolha =  int(input("Selecione o número da operação a ser realizada: Soma (1), Subtração (2), Determinante (3), Autovalor (4), Autovetor (5).\n" ))
-    if escolha == 1: #Soma
-        escolha = 0
-        calculadora.definir_valores_matriz(escolha) 
-        resultado.soma_matriz()
-        break
+    try:
+        escolha =  int(input("Selecione o número da operação a ser realizada: Soma (1), Subtração (2), Determinante (3), Autovalor e Autovetor (4).\n" ))
+        if escolha == 1: #Soma
+            escolha = 0
+            calculadora.definir_valores_matriz(escolha) 
+            resultado.soma_matriz()
+            break
 
-    elif escolha == 2: #Subtração
-        escolha = 0
-        calculadora.definir_valores_matriz(escolha) 
-        resultado.subtr_matriz()
-        break
+        elif escolha == 2: #Subtração
+            escolha = 0
+            calculadora.definir_valores_matriz(escolha) 
+            resultado.subtr_matriz()
+            break
 
-    elif escolha == 3: #Determinante 
-        escolha = 1
-        calculadora.definir_valores_matriz(escolha) 
-        resultado.determinante_matriz()
-        break
+        elif escolha == 3: #Determinante 
+            escolha = 1
+            calculadora.definir_valores_matriz(escolha) 
+            resultado.determinante_matriz()
+            break
 
-    elif escolha == 4: #Autovalor
-        escolha = 2
-        calculadora.definir_valores_matriz(escolha)
-        operacao.autovalor_matriz()
-        break
+        elif escolha == 4: #Autovetor
+            escolha = 2
+            calculadora.definir_valores_matriz(escolha) 
+            operacao.autovetor_matriz()
+            break
 
-    elif escolha == 5: #Autovetor
-        escolha = 2
-        calculadora.definir_valores_matriz(escolha) 
-        operacao.autovetor_matriz()
-        break
-
-    else:
+    except ValueError:
         print("Escolha umas das opções disponíveis.")

@@ -55,17 +55,17 @@ class Main():
                     linha_formatada = " | ".join([f"{str(Main.matriz[(linhas * self.linhas_matriz) + i]).rjust(4)}" for i in range(self.linhas_matriz)])
                     print(f"| {linha_formatada} |") 
                 
-                satisfeito = input("Você está satisfeito com a matriz 1? (Sim/Nao)\n")
-                if satisfeito == "Sim":
+                satisfeito = int(input("Você está satisfeito com a matriz 1?\nSim (1) / Não (2).\n"))
+                if satisfeito == 1:
                     matriz = 2
-                elif satisfeito == "Nao":
+                    break
+                elif satisfeito == 2:
                     print("Ok, vamos continuar alterando a matriz.")
-                else:
-                    print("Digite uma resposta válida")
+
                 
                 
                 print("Matriz 2")
-                while True:
+                while matriz == 2:
                     self.lista_matriz_preview()
                     
                     val = int(input("Digite o número da posição que você quer alterar:\n"))
@@ -79,15 +79,17 @@ class Main():
                     for linhas in range(self.linhas_matriz):
                         linha_formatada = " | ".join([f"{str(Main.matriz2[(linhas * self.linhas_matriz2) + i]).rjust(4)}" for i in range(self.linhas_matriz2)])
                         print(f"| {linha_formatada} |")
-
-                    satisfeito = input("Você está satisfeito com a matriz 1? (Sim/Nao)\n")
-                    if satisfeito == "Sim":
-                        break
-                    elif satisfeito == "Nao":
-                        print("Ok, vamos continuar alterando a matriz.")
-                    else:
-                        print("Digite uma resposta válida")
                         
+                    try:
+                        satisfeito = int(input("Você está satisfeito com a matriz 1?\nSim (1) / Não (2).\n"))
+                        print(satisfeito, "satisfeito")
+                        if satisfeito == 1:
+                            break
+                        elif satisfeito == 2:
+                            print("Ok, vamos continuar alterando a matriz.")
+                    except Exception:
+                        print("Digite uma opção válida.")
+            
             return Main.matriz, Main.matriz2
 
 #########################################################################################################################################
@@ -109,14 +111,16 @@ class Main():
                 for linhas in range(self.linhas_matriz):
                     linha_formatada = " | ".join([f"{str(Main.matriz[(linhas * self.linhas_matriz) + i]).rjust(4)}" for i in range(self.linhas_matriz)])
                     print(f"| {linha_formatada} |") #representacao
-
-                satisfeito = input("Você está satisfeito com a matriz 1? (Sim/Nao)\n")
-                if satisfeito == "Sim":
-                    break
-                elif satisfeito == "Nao":
-                    print("Ok, vamos continuar alterando a matriz.")
-                else:
-                    print("Digite uma resposta válida")
+                    
+                try:
+                    satisfeito = int(input("Você está satisfeito com a matriz 1?\nSim (1) / Não (2).\n"))
+                    if satisfeito == 1:
+                        break
+                    elif satisfeito == 2:
+                        print("Ok, vamos continuar alterando a matriz.")
+                except Exception:
+                    print("Digite uma opção válida")
+                
                     
             return Main.matriz
         
@@ -140,14 +144,16 @@ class Main():
                 for linhas in range(self.linhas_matriz):
                     linha_formatada = " | ".join([f"{str(Main.matriz[(linhas * self.linhas_matriz) + i]).rjust(4)}" for i in range(self.linhas_matriz)])
                     print(f"| {linha_formatada} |")
+                    
+                try:
+                    satisfeito = int(input("Você está satisfeito com a matriz 1?\nSim (1) / Não (2).\n"))
+                    if satisfeito == 1:
+                        break
+                    elif satisfeito == 2:
+                        print("Ok, vamos continuar alterando a matriz.")
+                except Exception:
+                    print("Digite um opção válida.")
 
-                satisfeito = input("Você está satisfeito com a matriz 1? (Sim/Nao)\n")
-                if satisfeito == "Sim":
-                    break
-                elif satisfeito == "Nao":
-                    print("Ok, vamos continuar alterando a matriz.")
-                else:
-                    print("Digite uma resposta válida")
             
             for i in range(0, len(Main.matriz), self.linhas_matriz+1):
                 Main.matriz2[i] = "x"
