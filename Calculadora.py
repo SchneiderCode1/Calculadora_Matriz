@@ -1,19 +1,47 @@
 from Funcoes import *
 
 
-linhas = int(input("Digite o tamanho da sua primeira matriz. Ex:. 4 -> 4x4\n"))
 
-linhas1 = int(input("Digite o tamanho da sua segunda matriz. Ex:. 4 -> 4x4\n"))
+print("Calculadora de Matrizes\nLimitações:\nA calculadora só é capaz de realizar suas operações padrão em matrizes quadradas de tamanho mínimo 3x3.\n")
 
-calculadora = Main(linhas, linhas1)
+linhas = int(input("Digite o tamanho da(s) matriz(es). Ex:. 4 -> 4x4\n"))
 
-resultado = Resultado(linhas, linhas1)
+calculadora = Main(linhas)
+resultado = Resultado(linhas)
+operacao = Operacoes(linhas)
 
-operacao = Operacoes(linhas, linhas1)
 
-calculadora.definir_valores_matriz() #iniciar a calculadora
+while True:
+    escolha =  int(input("Selecione o número da operação a ser realizada: Soma (1), Subtração (2), Determinante (3), Autovalor (4), Autovetor (5).\n" ))
+    if escolha == 1: #Soma
+        escolha = 0
+        calculadora.definir_valores_matriz(escolha) 
+        resultado.soma_matriz()
+        break
 
-operacao.determinante_matriz()
+    elif escolha == 2: #Subtração
+        escolha = 0
+        calculadora.definir_valores_matriz(escolha) 
+        resultado.subtr_matriz()
+        break
 
-resultado.print_matriz()
+    elif escolha == 3: #Determinante 
+        escolha = 1
+        calculadora.definir_valores_matriz(escolha) 
+        resultado.determinante_matriz()
+        break
 
+    elif escolha == 4: #Autovalor
+        escolha = 2
+        calculadora.definir_valores_matriz(escolha)
+        operacao.autovalor_matriz()
+        break
+
+    elif escolha == 5: #Autovetor
+        escolha = 2
+        calculadora.definir_valores_matriz(escolha) 
+        operacao.autovetor_matriz()
+        break
+
+    else:
+        print("Escolha umas das opções disponíveis.")
